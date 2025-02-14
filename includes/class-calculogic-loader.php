@@ -22,7 +22,7 @@
  * @author     H-CAT <yuri.bara.karmas.sin@gmail.com>
  */
 
- namespace Calculogic\Includes;
+namespace Calculogic\Includes;
 
 class Calculogic_Loader {
 

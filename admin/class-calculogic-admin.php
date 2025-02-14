@@ -21,7 +21,7 @@
  * @author     H-CAT <yuri.bara.karmas.sin@gmail.com>
  */
 
- namespace Calculogic\Includes;
+namespace Calculogic\Admin;
 
 class Calculogic_Admin {
 

@@ -27,8 +27,11 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
+
+// Include the Composer autoloader
+require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 /**
  * Currently plugin version.
@@ -42,8 +45,8 @@ define( 'CALCULOGIC_VERSION', '1.0.0' );
  * This action is documented in includes/class-calculogic-activator.php
  */
 function activate_calculogic() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-activator.php';
-	Calculogic_Activator::activate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-activator.php';
+    \Calculogic\Includes\Calculogic_Activator::activate();
 }
 
 /**
@@ -51,8 +54,8 @@ function activate_calculogic() {
  * This action is documented in includes/class-calculogic-deactivator.php
  */
 function deactivate_calculogic() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-deactivator.php';
-	Calculogic_Deactivator::deactivate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-deactivator.php';
+    \Calculogic\Includes\Calculogic_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_calculogic' );
@@ -63,6 +66,7 @@ register_deactivation_hook( __FILE__, 'deactivate_calculogic' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-calculogic.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-cpt.php';
 
 /**
  * Begins execution of the plugin.
@@ -75,11 +79,11 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-calculogic.php';
  */
 function run_calculogic() {
 
-    $plugin = new Calculogic\Includes\Calculogic();
+    $plugin = new \Calculogic\Includes\Calculogic();
     $plugin->run();
 
     // Register custom post types
-    add_action('init', array('Calculogic\Includes\Calculogic_CPT', 'register_post_types'));
+    add_action('init', array('\Calculogic\Includes\Calculogic_CPT', 'register_post_types'));
 
 }
 run_calculogic();
