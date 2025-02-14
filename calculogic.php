@@ -78,5 +78,8 @@ function run_calculogic() {
     $plugin = new Calculogic\Includes\Calculogic();
     $plugin->run();
 
+    // Register custom post types
+    add_action('init', array('Calculogic\Includes\Calculogic_CPT', 'register_post_types'));
+
 }
 run_calculogic();
