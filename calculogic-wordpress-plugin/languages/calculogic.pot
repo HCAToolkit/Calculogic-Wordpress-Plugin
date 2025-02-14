@@ -1,0 +1,53 @@
+msgid "Calculogic"
+msgstr ""
+
+msgid "Advanced Drag-and-Drop Form Builder Plugin"
+msgstr ""
+
+msgid "Drag-and-Drop Interface"
+msgstr ""
+
+msgid "A user-friendly visual editor for building forms effortlessly."
+msgstr ""
+
+msgid "Advanced Field Types"
+msgstr ""
+
+msgid "Calculated fields, repeatable fields, and custom HTML among others."
+msgstr ""
+
+msgid "Dynamic Calculations and Logic"
+msgstr ""
+
+msgid "For embedding complex arithmetic and logic directly within forms."
+msgstr ""
+
+msgid "Real-Time Feedback"
+msgstr ""
+
+msgid "To provide immediate validation and error messages during form filling."
+msgstr ""
+
+msgid "Collaboration Tools"
+msgstr ""
+
+msgid "Designed to support real-time editing and manage user permissions effectively."
+msgstr ""
+
+msgid "Backend Integration"
+msgstr ""
+
+msgid "To enable synchronization with databases and external APIs."
+msgstr ""
+
+msgid "Security and Compliance"
+msgstr ""
+
+msgid "Prioritizing data integrity and privacy with comprehensive security features."
+msgstr ""
+
+msgid "Join us in shaping the future of form building."
+msgstr ""
+
+msgid "Follow our progress and be part of the journey."
+msgstr ""
