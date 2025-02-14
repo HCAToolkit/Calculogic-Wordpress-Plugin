@@ -24,6 +24,9 @@
  * @subpackage Calculogic/includes
  * @author     H-CAT <yuri.bara.karmas.sin@gmail.com>
  */
+
+ namespace Calculogic\Includes;
+
 class Calculogic_i18n {
 
 
