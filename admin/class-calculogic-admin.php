@@ -103,4 +103,75 @@ class Calculogic_Admin {
 
 	}
 
+	/**
+	 * Register the settings page.
+	 *
+	 * @since    1.0.0
+	 */
+	public function add_plugin_admin_menu() {
+		add_options_page(
+			'Calculogic Settings',
+			'Calculogic',
+			'manage_options',
+			'calculogic',
+			array( $this, 'display_plugin_admin_page' )
+		);
+	}
+
+	/**
+	 * Render the settings page.
+	 *
+	 * @since    1.0.0
+	 */
+	public function display_plugin_admin_page() {
+		include_once 'partials/calculogic-admin-display.php';
+	}
+
+	/**
+	 * Register settings.
+	 *
+	 * @since    1.0.0
+	 */
+	public function register_settings() {
+		register_setting(
+			'calculogic_options',
+			'calculogic_options',
+			array( $this, 'sanitize' )
+		);
+
+		add_settings_section(
+			'calculogic_setting_section',
+			'Settings',
+			array( $this, 'print_section_info' ),
+			'calculogic'
+		);
+
+		add_settings_field(
+			'setting_example',
+			'Example Setting',
+			array( $this, 'setting_example_callback' ),
+			'calculogic',
+			'calculogic_setting_section'
+		);
+	}
+
+	public function sanitize($input) {
+		$new_input = array();
+		if(isset($input['setting_example']))
+			$new_input['setting_example'] = sanitize_text_field($input['setting_example']);
+
+		return $new_input;
+	}
+
+	public function print_section_info() {
+		print 'Enter your settings below:';
+	}
+
+	public function setting_example_callback() {
+		printf(
+			'<input type="text" id="setting_example" name="calculogic_options[setting_example]" value="%s" />',
+			isset( $this->options['setting_example'] ) ? esc_attr( $this->options['setting_example']) : ''
+		);
+	}
+
 }
