@@ -13,7 +13,7 @@ class Calculogic_CPT {
             ),
             'public' => true,
             'has_archive' => true,
-            'show_in_menu' => true,
+            'show_in_menu' => 'calculogic',
             'supports' => array('title', 'editor'),
         ));
 
@@ -25,7 +25,7 @@ class Calculogic_CPT {
             ),
             'public' => true,
             'has_archive' => true,
-            'show_in_menu' => true,
+            'show_in_menu' => 'calculogic',
             'supports' => array('title', 'editor'),
         ));
     }

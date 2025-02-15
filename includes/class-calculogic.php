@@ -181,6 +181,12 @@ class Calculogic {
         $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
         $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
+        // Register shortcodes
+        $this->loader->add_action( 'init', '\Calculogic\Includes\Calculogic_Shortcodes', 'register_shortcodes' );
+
+        // Handle form submissions
+        $this->loader->add_action( 'init', '\Calculogic\Includes\Calculogic_Form_Handler', 'handle_form_submission' );
+
     }
 
     /**

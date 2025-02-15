@@ -111,23 +111,36 @@ class Calculogic_Admin {
 	 * @since    1.0.0
 	 */
 	public function add_plugin_admin_menu() {
-		add_options_page(
-			'Calculogic Settings',
-			'Calculogic',
-			'manage_options',
-			'calculogic',
-			array( $this, 'display_plugin_admin_page' )
-		);
+	    // Top-level menu
+	    add_menu_page(
+	        'Calculogic',
+	        'Calculogic',
+	        'manage_options',
+	        'calculogic',
+	        array( $this, 'display_plugin_admin_page' ),
+	        'dashicons-feedback',
+	        6
+	    );
 
-		add_menu_page(
-			'Form Builder',
-			'Form Builder',
-			'manage_options',
-			'calculogic-form-builder',
-			array( $this, 'display_form_builder_page' ),
-			'dashicons-feedback',
-			6
-		);
+	    // Submenu for settings
+	    add_submenu_page(
+	        'calculogic',
+	        'Settings',
+	        'Settings',
+	        'manage_options',
+	        'calculogic',
+	        array( $this, 'display_plugin_admin_page' )
+	    );
+
+	    // Submenu for form builder
+	    add_submenu_page(
+	        'calculogic',
+	        'Form Builder',
+	        'Form Builder',
+	        'manage_options',
+	        'calculogic-form-builder',
+	        array( $this, 'display_form_builder_page' )
+	    );
 	}
 
 	/**
