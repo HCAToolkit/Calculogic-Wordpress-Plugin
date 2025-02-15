@@ -105,7 +105,7 @@ class Calculogic {
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-calculogic-admin.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-calculogic-public.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-cpt.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-shortcodes.php'; // Ensure this line is present
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-shortcodes.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-form-handler.php'; // Ensure this line is present
 
         $this->loader = new \Calculogic\Includes\Calculogic_Loader();
