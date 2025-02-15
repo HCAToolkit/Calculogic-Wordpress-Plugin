@@ -100,6 +100,8 @@ class Calculogic_Admin {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/calculogic-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'calculogic-form-builder', plugin_dir_url( __FILE__ ) . 'js/calculogic-form-builder.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( 'form-builder', 'https://cdnjs.cloudflare.com/ajax/libs/formBuilder/3.6.1/form-builder.min.js', array( 'jquery' ), '3.6.1', true );
 
 	}
 
@@ -116,6 +118,16 @@ class Calculogic_Admin {
 			'calculogic',
 			array( $this, 'display_plugin_admin_page' )
 		);
+
+		add_menu_page(
+			'Form Builder',
+			'Form Builder',
+			'manage_options',
+			'calculogic-form-builder',
+			array( $this, 'display_form_builder_page' ),
+			'dashicons-feedback',
+			6
+		);
 	}
 
 	/**
@@ -125,6 +137,15 @@ class Calculogic_Admin {
 	 */
 	public function display_plugin_admin_page() {
 		include_once 'partials/calculogic-admin-display.php';
+	}
+
+	/**
+	 * Render the form builder page.
+	 *
+	 * @since    1.0.0
+	 */
+	public function display_form_builder_page() {
+		include_once 'partials/calculogic-form-builder.php';
 	}
 
 	/**
