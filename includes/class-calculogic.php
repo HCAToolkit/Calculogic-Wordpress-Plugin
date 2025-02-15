@@ -158,7 +158,6 @@ class Calculogic {
      * @access   private
      */
     private function define_public_hooks() {
-
         $plugin_public = new \Calculogic\Public\Calculogic_Public( $this->get_plugin_name(), $this->get_version() );
 
         $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
@@ -169,7 +168,6 @@ class Calculogic {
 
         // Handle form submissions
         $this->loader->add_action( 'init', '\Calculogic\Includes\Calculogic_Form_Handler', 'handle_form_submission' );
-
     }
 
     /**
