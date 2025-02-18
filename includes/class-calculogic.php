@@ -106,7 +106,10 @@ class Calculogic {
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-calculogic-public.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-cpt.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-shortcodes.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-form-handler.php'; // Ensure this line is present
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-form-handler.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-workflow.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-enneagram.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-calculogic-builder.php';
 
         $this->loader = new \Calculogic\Includes\Calculogic_Loader();
     }
@@ -136,18 +139,18 @@ class Calculogic {
      * @access   private
      */
     private function define_admin_hooks() {
-
         $plugin_admin = new \Calculogic\Admin\Calculogic_Admin( $this->get_plugin_name(), $this->get_version() );
+        $plugin_builder = new \Calculogic\Includes\Calculogic_Builder();
 
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_menu' );
+        $this->loader->add_action( 'admin_menu', $plugin_builder, 'add_builder_menu' );
         $this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
 
         // Add meta boxes
         $this->loader->add_action( 'add_meta_boxes', '\Calculogic\Includes\Calculogic_CPT', 'add_meta_boxes' );
         $this->loader->add_action( 'save_post', '\Calculogic\Includes\Calculogic_CPT', 'save_meta_boxes' );
-
     }
 
     /**
