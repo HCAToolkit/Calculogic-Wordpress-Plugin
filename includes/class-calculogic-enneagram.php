@@ -104,4 +104,8 @@ class Calculogic_Enneagram {
 
         return $sorted_scores;
     }
+
+    public function calculate_enneagram($data) {
+        // Enneagram calculation logic
+    }
 }

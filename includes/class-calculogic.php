@@ -64,6 +64,11 @@ class Calculogic {
         $this->loader = new \Calculogic\Includes\Calculogic_Loader();
     }
 
+    private function set_locale() {
+        $plugin_i18n = new \Calculogic\Includes\Calculogic_i18n();
+        $this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+    }
+
     private function define_admin_hooks() {
         $plugin_admin = new \Calculogic\Admin\Calculogic_Admin( $this->get_plugin_name(), $this->get_version() );
         $plugin_builder = new \Calculogic\Includes\Calculogic_Builder();
