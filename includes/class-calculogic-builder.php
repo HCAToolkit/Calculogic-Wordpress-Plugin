@@ -5,12 +5,36 @@ namespace Calculogic\Includes;
 class Calculogic_Builder {
 
     public function __construct() {
-        // Hook the submenu creation into admin_menu
+        // Hook both the top-level menu and the submenu creation into admin_menu
+        add_action('admin_menu', array($this, 'add_top_level_menu'));
         add_action('admin_menu', array($this, 'add_builder_menu'));
     }
 
     /**
-     * Add a submenu page under the "Calculogic" top-level menu
+     * 1. Create a top-level menu item for "Calculogic"
+     */
+    public function add_top_level_menu() {
+        add_menu_page(
+            'Calculogic',           // Page title
+            'Calculogic',           // Menu title
+            'manage_options',       // Capability
+            'calculogic',           // Slug
+            array($this, 'display_top_level_page'), // Callback
+            'dashicons-admin-generic', // Icon (optional)
+            60                      // Position (optional)
+        );
+    }
+
+    /**
+     * This is just a placeholder to show some content when "Calculogic" (top-level) is clicked
+     */
+    public function display_top_level_page() {
+        echo '<div class="wrap"><h1>Welcome to Calculogic</h1>';
+        echo '<p>Select a submenu item (like "Builder") to get started.</p></div>';
+    }
+
+    /**
+     * 2. Add a submenu page under the "Calculogic" top-level menu
      */
     public function add_builder_menu() {
         add_submenu_page(
@@ -23,7 +47,7 @@ class Calculogic_Builder {
         );
     }
 
-       /**
+    /**
      * The callback for our "Builder" submenu
      */
     public function display_builder_page() {
@@ -55,7 +79,7 @@ class Calculogic_Builder {
         </div>
         <?php
     }
-    
+
     private function get_active_tab() {
         return isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'build';
     }

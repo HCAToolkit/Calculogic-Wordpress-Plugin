@@ -76,6 +76,7 @@ class Calculogic {
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_menu' );
+        $this->loader->add_action( 'admin_menu', $plugin_builder, 'add_top_level_menu' );
         $this->loader->add_action( 'admin_menu', $plugin_builder, 'add_builder_menu' );
         $this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
 
