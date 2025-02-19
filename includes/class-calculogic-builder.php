@@ -23,7 +23,7 @@ class Calculogic_Builder {
         );
     }
 
-    /**
+       /**
      * The callback for our "Builder" submenu
      */
     public function display_builder_page() {
@@ -55,7 +55,7 @@ class Calculogic_Builder {
         </div>
         <?php
     }
-
+    
     private function get_active_tab() {
         return isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'build';
     }
