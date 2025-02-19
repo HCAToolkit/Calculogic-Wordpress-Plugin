@@ -25,187 +25,168 @@ namespace Calculogic\Admin;
 
 class Calculogic_Admin {
 
-	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
-	private $plugin_name;
+    /**
+     * The ID of this plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      string    $plugin_name    The ID of this plugin.
+     */
+    private $plugin_name;
 
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
-	private $version;
+    /**
+     * The version of this plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      string    $version    The current version of this plugin.
+     */
+    private $version;
 
-	/**
-	 * Initialize the class and set its properties.
-	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
-	 */
-	public function __construct( $plugin_name, $version ) {
+    /**
+     * Initialize the class and set its properties.
+     *
+     * @since    1.0.0
+     * @param      string    $plugin_name       The name of this plugin.
+     * @param      string    $version    The version of this plugin.
+     */
+    public function __construct( $plugin_name, $version ) {
 
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+        $this->plugin_name = $plugin_name;
+        $this->version = $version;
 
-	}
+    }
 
-	/**
-	 * Register the stylesheets for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
+    /**
+     * Register the stylesheets for the admin area.
+     *
+     * @since    1.0.0
+     */
+    public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Calculogic_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Calculogic_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+        /**
+         * This function is provided for demonstration purposes only.
+         *
+         * An instance of this class should be passed to the run() function
+         * defined in Calculogic_Loader as all of the hooks are defined
+         * in that particular class.
+         *
+         * The Calculogic_Loader will then create the relationship
+         * between the defined hooks and the functions defined in this
+         * class.
+         */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/calculogic-admin.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/calculogic-admin.css', array(), $this->version, 'all' );
 
-	}
+    }
 
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
+    /**
+     * Register the JavaScript for the admin area.
+     *
+     * @since    1.0.0
+     */
+    public function enqueue_scripts() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Calculogic_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Calculogic_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+        /**
+         * This function is provided for demonstration purposes only.
+         *
+         * An instance of this class should be passed to the run() function
+         * defined in Calculogic_Loader as all of the hooks are defined
+         * in that particular class.
+         *
+         * The Calculogic_Loader will then create the relationship
+         * between the defined hooks and the functions defined in this
+         * class.
+         */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/calculogic-admin.js', array( 'jquery' ), $this->version, false );
-		wp_enqueue_script( 'calculogic-form-builder', plugin_dir_url( __FILE__ ) . 'js/calculogic-form-builder.js', array( 'jquery' ), $this->version, true );
-		wp_enqueue_script( 'form-builder', 'https://cdnjs.cloudflare.com/ajax/libs/formBuilder/3.6.1/form-builder.min.js', array( 'jquery' ), '3.6.1', true );
+        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/calculogic-admin.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( 'calculogic-form-builder', plugin_dir_url( __FILE__ ) . 'js/calculogic-form-builder.js', array( 'jquery' ), $this->version, true );
+        wp_enqueue_script( 'form-builder', 'https://cdnjs.cloudflare.com/ajax/libs/formBuilder/3.6.1/form-builder.min.js', array( 'jquery' ), '3.6.1', true );
 
-	}
+    }
 
-	/**
-	 * Register the settings page.
-	 *
-	 * @since    1.0.0
-	 */
-	public function add_plugin_admin_menu() {
-	    // Top-level menu
-	    add_menu_page(
-	        'Calculogic',
-	        'Calculogic',
-	        'manage_options',
-	        'calculogic',
-	        array( $this, 'display_plugin_admin_page' ),
-	        'dashicons-feedback',
-	        6
-	    );
+    /**
+     * Register the settings page.
+     *
+     * @since    1.0.0
+     */
+    public function add_plugin_admin_menu() {
+        // Top-level menu
+        add_menu_page(
+            'Calculogic',
+            'Calculogic',
+            'manage_options',
+            'calculogic',
+            array( $this, 'display_plugin_admin_page' ),
+            'dashicons-feedback',
+            6
+        );
 
-	    // Submenu for settings
-	    add_submenu_page(
-	        'calculogic',
-	        'Settings',
-	        'Settings',
-	        'manage_options',
-	        'calculogic',
-	        array( $this, 'display_plugin_admin_page' )
-	    );
+        // Submenu for settings
+        add_submenu_page(
+            'calculogic',
+            'Settings',
+            'Settings',
+            'manage_options',
+            'calculogic',
+            array( $this, 'display_plugin_admin_page' )
+        );
+    }
 
-	    // Submenu for form builder
-	    add_submenu_page(
-	        'calculogic',
-	        'Form Builder',
-	        'Form Builder',
-	        'manage_options',
-	        'calculogic-form-builder',
-	        array( $this, 'display_form_builder_page' )
-	    );
-	}
+    /**
+     * Render the settings page.
+     *
+     * @since    1.0.0
+     */
+    public function display_plugin_admin_page() {
+        include_once 'partials/calculogic-admin-display.php';
+    }
 
-	/**
-	 * Render the settings page.
-	 *
-	 * @since    1.0.0
-	 */
-	public function display_plugin_admin_page() {
-		include_once 'partials/calculogic-admin-display.php';
-	}
+    /**
+     * Register settings.
+     *
+     * @since    1.0.0
+     */
+    public function register_settings() {
+        register_setting(
+            'calculogic_options',
+            'calculogic_options',
+            array( $this, 'sanitize' )
+        );
 
-	/**
-	 * Render the form builder page.
-	 *
-	 * @since    1.0.0
-	 */
-	public function display_form_builder_page() {
-		include_once 'partials/calculogic-form-builder.php';
-	}
+        add_settings_section(
+            'calculogic_setting_section',
+            'Settings',
+            array( $this, 'print_section_info' ),
+            'calculogic'
+        );
 
-	/**
-	 * Register settings.
-	 *
-	 * @since    1.0.0
-	 */
-	public function register_settings() {
-		register_setting(
-			'calculogic_options',
-			'calculogic_options',
-			array( $this, 'sanitize' )
-		);
+        add_settings_field(
+            'setting_example',
+            'Example Setting',
+            array( $this, 'setting_example_callback' ),
+            'calculogic',
+            'calculogic_setting_section'
+        );
+    }
 
-		add_settings_section(
-			'calculogic_setting_section',
-			'Settings',
-			array( $this, 'print_section_info' ),
-			'calculogic'
-		);
+    public function sanitize($input) {
+        $new_input = array();
+        if(isset($input['setting_example']))
+            $new_input['setting_example'] = sanitize_text_field($input['setting_example']);
 
-		add_settings_field(
-			'setting_example',
-			'Example Setting',
-			array( $this, 'setting_example_callback' ),
-			'calculogic',
-			'calculogic_setting_section'
-		);
-	}
+        return $new_input;
+    }
 
-	public function sanitize($input) {
-		$new_input = array();
-		if(isset($input['setting_example']))
-			$new_input['setting_example'] = sanitize_text_field($input['setting_example']);
+    public function print_section_info() {
+        print 'Enter your settings below:';
+    }
 
-		return $new_input;
-	}
-
-	public function print_section_info() {
-		print 'Enter your settings below:';
-	}
-
-	public function setting_example_callback() {
-		printf(
-			'<input type="text" id="setting_example" name="calculogic_options[setting_example]" value="%s" />',
-			isset( $this->options['setting_example'] ) ? esc_attr( $this->options['setting_example']) : ''
-		);
-	}
+    public function setting_example_callback() {
+        printf(
+            '<input type="text" id="setting_example" name="calculogic_options[setting_example]" value="%s" />',
+            isset( $this->options['setting_example'] ) ? esc_attr( $this->options['setting_example']) : ''
+        );
+    }
 
 }
