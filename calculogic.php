@@ -66,7 +66,6 @@ register_deactivation_hook( __FILE__, 'deactivate_calculogic' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-calculogic.php';
-require plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-cpt.php';
 
 /**
  * Begins execution of the plugin.
@@ -81,9 +80,6 @@ function run_calculogic() {
 
     $plugin = new \Calculogic\Includes\Calculogic();
     $plugin->run();
-
-    // Register custom post types
-    add_action('init', array('\Calculogic\Includes\Calculogic_CPT', 'register_post_types'));
 
 }
 run_calculogic();

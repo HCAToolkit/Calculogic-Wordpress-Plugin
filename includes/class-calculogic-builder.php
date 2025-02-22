@@ -31,19 +31,19 @@ class Calculogic_Builder {
         <div class="wrap">
             <h1>Calculogic Builder</h1>
             <h2 class="nav-tab-wrapper">
-                <a href="?page=calculogic-builder&tab=build"
+                <a href="<?php echo esc_url( admin_url( 'admin.php?page=calculogic-builder&tab=build' ) ); ?>"
                    class="nav-tab <?php echo $this->get_active_tab() === 'build' ? 'nav-tab-active' : ''; ?>">
                    Build
                 </a>
-                <a href="?page=calculogic-builder&tab=workflow"
+                <a href="<?php echo esc_url( admin_url( 'admin.php?page=calculogic-builder&tab=workflow' ) ); ?>"
                    class="nav-tab <?php echo $this->get_active_tab() === 'workflow' ? 'nav-tab-active' : ''; ?>">
                    Calculogic/Workflow
                 </a>
-                <a href="?page=calculogic-builder&tab=view"
+                <a href="<?php echo esc_url( admin_url( 'admin.php?page=calculogic-builder&tab=view' ) ); ?>"
                    class="nav-tab <?php echo $this->get_active_tab() === 'view' ? 'nav-tab-active' : ''; ?>">
                    View
                 </a>
-                <a href="?page=calculogic-builder&tab=results"
+                <a href="<?php echo esc_url( admin_url( 'admin.php?page=calculogic-builder&tab=results' ) ); ?>"
                    class="nav-tab <?php echo $this->get_active_tab() === 'results' ? 'nav-tab-active' : ''; ?>">
                    Results/Knowledge
                 </a>
