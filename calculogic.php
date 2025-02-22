@@ -13,9 +13,9 @@
  * @package           Calculogic
  *
  * @wordpress-plugin
- * Plugin Name:       Calculogic: Form and Quiz Suite
+ * Plugin Name:       Calculogic
  * Plugin URI:        https://www.hcatoolkit.com
- * Description:       Advanced Form and Quiz Suite
+ * Description:       A plugin for building forms and quizzes.
  * Version:           1.0.0
  * Author:            H-CAT
  * Author URI:        https://www.hcatoolkit.com/
@@ -46,7 +46,7 @@ define( 'CALCULOGIC_VERSION', '1.0.0' );
  */
 function activate_calculogic() {
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-activator.php';
-    \Calculogic\Includes\Calculogic_Activator::activate();
+    Calculogic_Activator::activate();
 }
 
 /**
@@ -55,7 +55,7 @@ function activate_calculogic() {
  */
 function deactivate_calculogic() {
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-deactivator.php';
-    \Calculogic\Includes\Calculogic_Deactivator::deactivate();
+    Calculogic_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_calculogic' );
