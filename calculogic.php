@@ -77,9 +77,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-calculogic.php';
  * @since    1.0.0
  */
 function run_calculogic() {
-
     $plugin = new \Calculogic\Includes\Calculogic();
     $plugin->run();
-
 }
 run_calculogic();
