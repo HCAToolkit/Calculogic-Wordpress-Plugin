@@ -81,3 +81,8 @@ function run_calculogic() {
     $plugin->run();
 }
 run_calculogic();
+
+add_action('admin_menu', function() {
+    $builder = new \Calculogic\Includes\Calculogic_Builder();
+    $builder->add_builder_menu();
+});
