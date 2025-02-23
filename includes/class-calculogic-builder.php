@@ -14,7 +14,7 @@ class Calculogic_Builder {
      */
     public function add_builder_menu() {
         add_submenu_page(
-            'calculogic',           // Parent slug (matches top-level menu slug)
+            'tools.php',            // temporary parent for testing
             'Calculogic Builder',   // Page title
             'Builder',              // Submenu title
             'manage_options',       // Capability
