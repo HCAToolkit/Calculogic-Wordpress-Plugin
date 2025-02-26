@@ -81,3 +81,7 @@ function run_calculogic() {
     $plugin->run();
 }
 run_calculogic();
+
+add_action('admin_menu', function() {
+    $builder->add_builder_menu();
+});
