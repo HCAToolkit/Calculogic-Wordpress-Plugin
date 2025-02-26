@@ -83,5 +83,6 @@ function run_calculogic() {
 run_calculogic();
 
 add_action('admin_menu', function() {
+    $builder = new \Calculogic\Includes\Calculogic_Builder();
     $builder->add_builder_menu();
 });
