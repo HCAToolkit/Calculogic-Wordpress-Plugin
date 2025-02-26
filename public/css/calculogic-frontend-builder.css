@@ -1,0 +1,59 @@
+/* filepath: /workspaces/Calculogic-Wordpress-Plugin/public/css/calculogic-frontend-builder.css */
+
+.calculogic-builder-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.calculogic-builder-header {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.calculogic-builder-body {
+    display: flex;
+    flex-direction: row;
+    min-height: 400px;
+}
+
+.calculogic-builder-sidebar {
+    width: 200px;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.calculogic-fields-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.calculogic-fields-list li {
+    margin: 5px 0;
+    padding: 8px;
+    background-color: #eef;
+    cursor: grab;
+}
+
+.calculogic-builder-main {
+    flex: 1;
+    padding: 10px;
+    background-color: #fafafa;
+}
+
+.calculogic-dropzone {
+    min-height: 200px;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.calculogic-builder-settings {
+    width: 250px;
+    border-left: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+}
