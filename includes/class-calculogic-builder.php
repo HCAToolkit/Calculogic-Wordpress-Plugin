@@ -15,7 +15,7 @@ class Calculogic_Builder {
     public function add_builder_menu() {
         error_log('Calculogic_Builder: add_builder_menu called');
         add_submenu_page(
-            'calculogic',            // temporary parent for testing
+            'calculogic',            // Parent slug
             'Calculogic Builder',   // Page title
             'Builder',              // Submenu title
             'manage_options',       // Capability
