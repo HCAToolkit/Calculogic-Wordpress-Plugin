@@ -9,26 +9,16 @@ class Calculogic_Shortcodes {
     }
 
     public static function render_form_builder_shortcode($atts) {
+        // Enqueue necessary scripts and styles
+        wp_enqueue_style('calculogic-builder', plugin_dir_url(__FILE__) . '../admin/css/calculogic-builder.css', array(), '1.0.0', 'all');
+        wp_enqueue_script('calculogic-form-builder', plugin_dir_url(__FILE__) . '../admin/js/calculogic-form-builder.js', array('jquery'), '1.0.0', true);
+        wp_enqueue_script('form-builder', 'https://cdnjs.cloudflare.com/ajax/libs/formBuilder/3.6.1/form-builder.min.js', array('jquery'), '3.6.1', true);
+
         // Render the form builder
         ob_start();
         ?>
         <div class="calculogic-form-builder">
-            <form id="calculogic-form" method="post" action="">
-                <div id="calculogic-form-builder">
-                    <!-- Add form elements here -->
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required><br><br>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required><br><br>
-
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" required></textarea><br><br>
-                </div>
-                <input type="hidden" id="calculogic_form_data" name="calculogic_form_data" value="">
-                <?php wp_nonce_field('calculogic_form_nonce_action', 'calculogic_form_nonce'); ?>
-                <button type="submit" name="calculogic_form_submit" class="button button-primary">Save Form</button>
-            </form>
+            <div id="calculogic-form-builder"></div>
         </div>
         <?php
         return ob_get_clean();
