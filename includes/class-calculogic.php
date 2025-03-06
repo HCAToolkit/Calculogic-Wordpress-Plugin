@@ -2,6 +2,8 @@
 
 namespace Calculogic\Includes;
 
+use Calculogic\Admin\Calculogic_Admin;
+
 /**
  * The file that defines the core plugin class
  *
@@ -70,7 +72,7 @@ class Calculogic {
     }
 
     private function define_admin_hooks() {
-        $plugin_admin = new \Calculogic\Admin\Calculogic_Admin( $this->get_plugin_name(), $this->get_version() );
+        $plugin_admin = new Calculogic_Admin( $this->get_plugin_name(), $this->get_version() );
         $plugin_builder = new \Calculogic\Includes\Calculogic_Builder();
 
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );

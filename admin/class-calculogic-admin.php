@@ -20,6 +20,9 @@ class Calculogic_Admin {
     public function __construct( $plugin_name, $version ) {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
+
+        // Hook into the admin_menu action
+        add_action('admin_menu', [$this, 'add_plugin_admin_menu']);
     }
 
     public function enqueue_styles() {
