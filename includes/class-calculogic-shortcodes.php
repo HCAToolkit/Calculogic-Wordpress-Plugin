@@ -20,6 +20,11 @@ class Calculogic_Shortcodes {
         <div class="calculogic-form-builder">
             <div id="calculogic-form-builder"></div>
         </div>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $('#calculogic-form-builder').formBuilder();
+            });
+        </script>
         <?php
         return ob_get_clean();
     }
