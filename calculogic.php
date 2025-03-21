@@ -33,6 +33,10 @@ if ( ! defined( 'WPINC' ) ) {
 // Include the Composer autoloader
 require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
+// Include the activator and deactivator classes
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-activator.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-deactivator.php';
+
 /**
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
@@ -45,7 +49,6 @@ define( 'CALCULOGIC_VERSION', '1.0.0' );
  * This action is documented in includes/class-calculogic-activator.php
  */
 function activate_calculogic() {
-    require_once plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-activator.php';
     Calculogic_Activator::activate();
 }
 
@@ -54,7 +57,6 @@ function activate_calculogic() {
  * This action is documented in includes/class-calculogic-deactivator.php
  */
 function deactivate_calculogic() {
-    require_once plugin_dir_path( __FILE__ ) . 'includes/class-calculogic-deactivator.php';
     Calculogic_Deactivator::deactivate();
 }
 

@@ -25,15 +25,13 @@
 
 class Calculogic_Activator {
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function activate() {
-
-	}
+    /**
+     * Code to execute during plugin activation.
+     *
+     * @since    1.0.0
+     */
+    public static function activate() {
+        // Add activation logic here, such as creating database tables or setting default options.
+    }
 
 }

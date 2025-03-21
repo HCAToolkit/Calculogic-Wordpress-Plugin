@@ -25,15 +25,13 @@
 
 class Calculogic_Deactivator {
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function deactivate() {
-
-	}
+    /**
+     * Code to execute during plugin deactivation.
+     *
+     * @since    1.0.0
+     */
+    public static function deactivate() {
+        // Add deactivation logic here, such as cleaning up options or database tables.
+    }
 
 }
