@@ -97,6 +97,9 @@ class Calculogic {
 
         // Handle form submissions
         $this->loader->add_action( 'init', '\Calculogic\Includes\Calculogic_Form_Handler', 'handle_form_submission' );
+
+        // Enqueue public scripts
+        $this->loader->add_action( 'wp_enqueue_scripts', $this, 'enqueue_public_scripts' );
     }
 
     public function run() {
@@ -113,5 +116,11 @@ class Calculogic {
 
     public function get_version() {
         return $this->version;
+    }
+
+    public function enqueue_public_scripts() {
+        wp_enqueue_style('calculogic-builder-public', plugin_dir_url(__FILE__) . '../public/css/calculogic-frontend-builder.css', array(), '1.0.0', 'all');
+        wp_enqueue_script('form-builder', 'https://cdnjs.cloudflare.com/ajax/libs/formBuilder/3.6.1/form-builder.min.js', array('jquery'), '3.6.1', true);
+        wp_enqueue_script('calculogic-form-builder-public', plugin_dir_url(__FILE__) . '../public/js/calculogic-form-builder-public.js', array('jquery', 'form-builder'), '1.0.0', true);
     }
 }

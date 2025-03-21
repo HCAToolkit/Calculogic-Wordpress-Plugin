@@ -68,15 +68,6 @@ register_deactivation_hook( __FILE__, 'deactivate_calculogic' );
 require plugin_dir_path( __FILE__ ) . 'includes/class-calculogic.php';
 
 /**
- * Register the Calculogic widget.
- */
-function register_calculogic_form_widget() {
-    require_once plugin_dir_path(__FILE__) . 'includes/widgets/class-calculogic-form-widget.php';
-    register_widget('Calculogic\Includes\Widgets\Calculogic_Form_Widget');
-}
-add_action('widgets_init', 'register_calculogic_form_widget');
-
-/**
  * Begins execution of the plugin.
  *
  * Since everything within the plugin is registered via hooks,
@@ -90,3 +81,10 @@ function run_calculogic() {
     $plugin->run();
 }
 run_calculogic();
+
+// Register the form widget
+function register_calculogic_form_widget() {
+    require_once plugin_dir_path( __FILE__ ) . 'includes/widgets/class-calculogic-form-widget.php';
+    register_widget( 'Calculogic_Form_Widget' );
+}
+add_action( 'widgets_init', 'register_calculogic_form_widget' );

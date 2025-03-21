@@ -1,0 +1,1 @@
+The vendor directory is typically used to store Composer dependencies and does not contain any specific files created by the user. Therefore, this directory is intentionally left blank.

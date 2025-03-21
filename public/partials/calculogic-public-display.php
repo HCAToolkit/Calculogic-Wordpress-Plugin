@@ -24,3 +24,33 @@
      ?>
  </form>
 </div>
+
+<div class="calculogic-dashboard">
+    <h2><?php _e('Manage Your Forms', 'calculogic'); ?></h2>
+    <div id="calculogic-form-builder"></div>
+    <button id="save-form" class="button button-primary"><?php _e('Save Form', 'calculogic'); ?></button>
+    <button id="delete-form" class="button button-secondary"><?php _e('Delete Form', 'calculogic'); ?></button>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        if (typeof $.fn.formBuilder !== 'undefined') {
+            var formBuilder = $('#calculogic-form-builder').formBuilder();
+
+            $('#save-form').on('click', function() {
+                var formData = formBuilder.actions.getData('json');
+                console.log('Form saved:', formData);
+                alert('<?php _e('Form saved successfully!', 'calculogic'); ?>');
+            });
+
+            $('#delete-form').on('click', function() {
+                if (confirm('<?php _e('Are you sure you want to delete this form?', 'calculogic'); ?>')) {
+                    formBuilder.actions.clearFields();
+                    alert('<?php _e('Form deleted successfully!', 'calculogic'); ?>');
+                }
+            });
+        } else {
+            console.error('formBuilder is not loaded');
+        }
+    });
+</script>
